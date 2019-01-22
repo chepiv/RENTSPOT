@@ -1,4 +1,4 @@
-package domain_core;
+package com.chepiv.rentspot.domain_core;
 
 import javax.persistence.*;
 import java.util.List;

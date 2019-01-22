@@ -1,4 +1,4 @@
-package domain_core;
+package com.chepiv.rentspot.domain_core;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,17 +15,23 @@ public class Landlord extends User {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, mappedBy = "landlord")
     private List<Offer> offers;
 
+    public Landlord(String name, String surname, String email, String phone, String password) {
+        super(name, surname, email, phone, password);
+    }
+
+    public Landlord() {
+    }
+
     @Override
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

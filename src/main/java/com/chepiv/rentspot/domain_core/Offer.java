@@ -1,4 +1,4 @@
-package domain_core;
+package com.chepiv.rentspot.domain_core;
 
 import org.hibernate.type.BlobType;
 
@@ -23,6 +23,10 @@ public class Offer {
     private Date date;
     @Column(name = "photo")
     private BlobType photo;
+    @Column(name = "header")
+    private String header;
+    @Column(name = "description")
+    private String description;
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
@@ -32,13 +36,11 @@ public class Offer {
             inverseJoinColumns = @JoinColumn(name = "ParameterID")
     )
     private List<Parameter> parameters;
-    @Column
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "RenterUserID")
+    @JoinColumn(name = "renter_userid")
     private Landlord landlord;
-    @Column
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "LandlordUserID")
+    @JoinColumn(name = "landlord_userid")
     private Renter renter;
 
     public long getId() {
@@ -95,5 +97,21 @@ public class Offer {
 
     public void setRenter(Renter renter) {
         this.renter = renter;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

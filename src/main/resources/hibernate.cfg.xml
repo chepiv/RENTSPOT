@@ -14,17 +14,17 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">admin</property>
         <property name="show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
-        <property name="hbm2ddl.auto">create</property>
+        <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
+        <!--<property name="hbm2ddl.auto">create</property>-->
 
         <!-- Specifying Session Context -->
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!-- Mapping With Model Class Containing Annotations -->
-        <mapping class="domain_core.User"/>
-        <mapping class="domain_core.Landlord"/>
-        <mapping class="domain_core.Renter"/>
-        <mapping class="domain_core.Parameter"/>
-        <mapping class="domain_core.Offer"/>
+        <mapping class="com.chepiv.rentspot.domain_core.User"/>
+        <mapping class="com.chepiv.rentspot.domain_core.Landlord"/>
+        <mapping class="com.chepiv.rentspot.domain_core.Renter"/>
+        <mapping class="com.chepiv.rentspot.domain_core.Parameter"/>
+        <mapping class="com.chepiv.rentspot.domain_core.Offer"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,4 +1,4 @@
-package domain_core;
+package com.chepiv.rentspot.domain_core;
 
 import javax.persistence.*;
 
@@ -26,11 +26,22 @@ public abstract class User {
     @Column
     private String password;
 
-    public long getId() {
+    public User(String name, String surname, String email, String phone, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
+
+    public User() {
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

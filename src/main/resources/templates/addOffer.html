@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Add Offer</title>
+</head>
+<body>
+<head>
+    <meta charset="UTF-8">
+    <!--/*@thymesVar id="offer" type="com.chepiv.rentspot.domain_core.Offer"*/-->
+    <form action="#" th:action="@{/persistOffer}" th:object="${offer}" method="post">
+        <label for="header">Header</label>
+        <input type="text" th:field="*{header}" id="header" placeholder="Header">
+        <span th:if="${#fields.hasErrors('header')}" th:errors="*{header}"></span>
+        <label for="description">Description</label>
+        <input type="text" th:field="*{description}" id="description" placeholder="Description">
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        <input type="submit" value="Add Offer">
+    </form>
+</body>
+</html>
