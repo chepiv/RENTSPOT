@@ -11,9 +11,10 @@ import java.util.List;
 @Entity
 @Table(name = "Parameter")
 public class Parameter {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "ID")
-    private long id;
+    private Long id;
     @Column(name = "Name")
     private String name;
     @Column(name = "Value")
@@ -21,11 +22,11 @@ public class Parameter {
     @ManyToMany(mappedBy = "parameters")
     private List<Offer> offers;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -43,5 +44,13 @@ public class Parameter {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
     }
 }

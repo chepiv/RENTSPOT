@@ -13,6 +13,7 @@ import java.util.List;
 public class Renter extends User{
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, mappedBy = "renter")
     private List<Offer> offers;

@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Add Offer</title>
 </head>
 <body>
 <head>
     <meta charset="UTF-8">
     <!--/*@thymesVar id="offer" type="com.chepiv.rentspot.domain_core.Offer"*/-->
+    <!--/*@thymesVar id="parameter" type="com.chepiv.rentspot.domain_core.Parameter"*/-->
     <form action="#" th:action="@{/persistOffer}" th:object="${offer}" method="post">
-        <label for="header">Header</label>
-        <input type="text" th:field="*{header}" id="header" placeholder="Header">
-        <span th:if="${#fields.hasErrors('header')}" th:errors="*{header}"></span>
-        <label for="description">Description</label>
-        <input type="text" th:field="*{description}" id="description" placeholder="Description">
-        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        <div><label for="header">Header</label>
+            <input type="text" th:field="*{header}" id="header" placeholder="Header">
+            <span th:if="${#fields.hasErrors('header')}" th:errors="*{header}"></span>
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <input type="text" th:field="*{description}" id="description" placeholder="Description">
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        </div>
+
+        <div>
+            <label for="csvParam">Parameters ID's in CSV format</label>
+            <input type="text" th:field="*{csvParam}" id="csvParam" placeholder="CSV Parameters">
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        </div>
+
+        <!--<div>-->
+            <!--<label for="par_name">Name</label>-->
+            <!--<input type="text" id="par_name" th:field="${offer.parameters[0].name}" name="name">-->
+
+            <!--<label for="par_value">Value</label>-->
+            <!--<input type="text" id="par_value" th:field="${offer.parameters[0].value}" name="value">-->
+
+
+        <!--</div>-->
         <input type="submit" value="Add Offer">
     </form>
 </body>

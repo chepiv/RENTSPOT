@@ -14,9 +14,10 @@ import java.util.List;
 @Entity
 @Table(name = "offer")
 public class Offer {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "ID")
-    private long id;
+    private Long id;
     @Column(name = "marked")
     private boolean marked;
     @Column(name = "Date")
@@ -37,17 +38,20 @@ public class Offer {
     )
     private List<Parameter> parameters;
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "renter_userid")
+    @JoinColumn(name = "landlord_userid")
     private Landlord landlord;
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
-    @JoinColumn(name = "landlord_userid")
+    @JoinColumn(name = "renter_userid")
     private Renter renter;
 
-    public long getId() {
+    @Transient
+    private String csvParam;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -113,5 +117,13 @@ public class Offer {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCsvParam() {
+        return csvParam;
+    }
+
+    public void setCsvParam(String csvParam) {
+        this.csvParam = csvParam;
     }
 }

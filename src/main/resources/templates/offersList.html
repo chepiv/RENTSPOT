@@ -2,13 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Spring Boot Thymeleaf Hello World Example</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link rel="stylesheet" type="text/css"
-          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+          th:href="@{/css/bootstrap-theme.css}"/>
+
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/css/bootstrap.css}"/>
 
     <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../static/main.css" />
+          />
 
 </head>
 <body>
@@ -16,12 +19,12 @@
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Spring Boot</a>
+            <a class="navbar-brand" href="#">RENTSPOT</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li class="active"><a th:href="@{addOffer}">Add Offer</a></li>
+                <li><a th:href="@{paramList}">Parameters List</a></li>
             </ul>
         </div>
     </div>
@@ -31,12 +34,13 @@
     <h2 th:case="null">No offers yet!</h2>
     <div th:case="*">
         <h2>Offers</h2>
-        <table>
+        <table class="table">
             <thead>
             <tr>
                 <th>Header</th>
                 <th>Description</th>
                 <th>Landlord</th>
+                <th>Parameters</th>
             </tr>
             </thead>
             <tbody>
@@ -44,12 +48,30 @@
                 <td th:text="${offer.header}"></td>
                 <td th:text="${offer.description}"></td>
                 <td th:text="${offer.landlord.surname}"></td>
+                <td>
+                    <ul th:each="parameter : ${offer.parameters}">
+                    <li th:text="${parameter.name}"></li>
+                    <li th:text="${parameter.value}"></li>
+                </ul>
+                </td>
 
-                <!--<td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>-->
-                <!--<td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>-->
+
+
             </tr>
             </tbody>
         </table>
+
+        <!--<table>-->
+    <!--<span th:each="offer : ${offers}">-->
+        <!--<td>-->
+            <!--<tr th:each="parameter: ${offer.parameters}">-->
+                <!--<p th:text="${parameter.name}"></p>-->
+                <!--<p th:text="${parameter.value}"></p>-->
+            <!--</tr>-->
+        <!--<td>-->
+    <!--</span>-->
+        <!--</table>-->
+
     </div>
     <!--<p><a href="/signup">Add a new user</a></p>-->
 </div>

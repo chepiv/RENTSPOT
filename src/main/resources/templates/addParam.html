@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Add Parameter</title>
+</head>
+<body>
+<head>
+    <meta charset="UTF-8">
+    <!--/*@thymesVar id="offer" type="com.chepiv.rentspot.domain_core.Offer"*/-->
+    <!--/*@thymesVar id="parameter" type="com.chepiv.rentspot.domain_core.Parameter"*/-->
+    <form action="#" th:action="@{/persistParam}" th:object="${parameter}" method="post">
+        <div><label for="name">Name</label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Name">
+        </div>
+        <div>
+            <label for="value">Value</label>
+            <input type="text" th:field="*{value}" id="value" placeholder="Value">
+        </div>
+
+        <!--<div>-->
+        <!--<label for="par_name">Name</label>-->
+        <!--<input type="text" id="par_name" th:field="${offer.parameters[0].name}" name="name">-->
+
+        <!--<label for="par_value">Value</label>-->
+        <!--<input type="text" id="par_value" th:field="${offer.parameters[0].value}" name="value">-->
+
+
+        <!--</div>-->
+        <input type="submit" value="Add Parameter">
+    </form>
+</body>
+</html>
