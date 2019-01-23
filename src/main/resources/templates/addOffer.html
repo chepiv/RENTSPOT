@@ -3,24 +3,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>Add Offer</title>
-</head>
-<body>
 <head>
+    <title>RENTSPOT</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/css/bootstrap-theme.css}"/>
+
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/css/bootstrap.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+    />
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">RENTSPOT</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{addOffer}">Add Offer</a></li>
+                <li><a th:href="@{addParam}">Add Parameters</a></li>
+                <li><a th:href="@{paramList}">Parameters List</a></li>
+                <li><a th:href="@{/}">Offers List</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
     <meta charset="UTF-8">
     <!--/*@thymesVar id="offer" type="com.chepiv.rentspot.domain_core.Offer"*/-->
     <!--/*@thymesVar id="parameter" type="com.chepiv.rentspot.domain_core.Parameter"*/-->
-    <form action="#" th:action="@{/persistOffer}" th:object="${offer}" method="post">
-        <div><label for="header">Header</label>
+    <form class="container" style="display: block;horiz-align: center;vertical-align: center;text-align: left" action="#" th:action="@{/persistOffer}" th:object="${offer}" method="post">
+        <div class="form-group"><label for="header">Header</label>
             <input type="text" th:field="*{header}" id="header" placeholder="Header">
             <span th:if="${#fields.hasErrors('header')}" th:errors="*{header}"></span>
         </div>
-        <div>
+        <div class="form-group">
             <label for="description">Description</label>
             <input type="text" th:field="*{description}" id="description" placeholder="Description">
             <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="csvParam">Parameters ID's in CSV format</label>
             <input type="text" th:field="*{csvParam}" id="csvParam" placeholder="CSV Parameters">
             <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
@@ -35,7 +63,9 @@
 
 
         <!--</div>-->
-        <input type="submit" value="Add Offer">
+        <button  class="btn btn-primary" type="submit" value="Add Offer">Add Offer</button>
     </form>
+
+
 </body>
 </html>

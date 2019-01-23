@@ -18,6 +18,14 @@ public class UserController {
     @Autowired
     LandlordRepository landlordRepository;
 
+    /**
+     * @param name
+     * @param surname
+     * @param email
+     * @param password
+     * Endpoint for creating Landlord for testing purposes
+     * @return Operation status
+     */
     @RequestMapping("/create")
     @ResponseBody
     public String create(String name, String surname,String email, String password) {

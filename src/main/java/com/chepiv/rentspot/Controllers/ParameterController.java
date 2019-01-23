@@ -21,17 +21,31 @@ public class ParameterController {
     @Autowired
     ParameterRepository parameterRepository;
 
+    /**
+     * @param parameter
+     * @return HTML view
+     */
     @RequestMapping("/addParam")
     public String addParam(Parameter parameter){
         return "addParam";
     }
 
+    /**
+     * @param model
+     * @return HTML view with list of parameters
+     */
     @RequestMapping("/paramList")
     public String getParamList(Model model){
         model.addAttribute("parameters",parameterRepository.findAll());
         return "paramList";
     }
 
+    /**
+     * @param parameter
+     * @param bindingResult
+     * Storing created from GUI parameters to DB
+     * @return HTML view
+     */
     @RequestMapping("/persistParam")
     public String persistParam(@Valid Parameter parameter, BindingResult bindingResult){
         if (bindingResult.hasErrors()){

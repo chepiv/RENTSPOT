@@ -46,6 +46,8 @@ public class Offer {
 
     @Transient
     private String csvParam;
+    @Transient
+    private Long reserveId;
 
     public Long getId() {
         return id;
@@ -125,5 +127,13 @@ public class Offer {
 
     public void setCsvParam(String csvParam) {
         this.csvParam = csvParam;
+    }
+
+    public Long getReserveId() {
+        return reserveId;
+    }
+
+    public void setReserveId(Long reserveId) {
+        this.reserveId = reserveId;
     }
 }
