@@ -58,11 +58,11 @@ public class OfferController {
     /**
      * @param offer
      * @param result
-     * Reservation of offer via setting db value to 1
+     * Marking of offer via setting db value to 1
      * @return HTML view
      */
     @RequestMapping(value = "/reserveOffer")
-    public String reserveOffer(Offer offer, BindingResult result) {
+    public String reserveOffer(Offer offer, BindingResult result,Model model) {
         if (result.hasErrors()){
             return "offersList";
         }
@@ -73,6 +73,7 @@ public class OfferController {
             offerRes.get().setMarked(true);
             offerRepository.save(offerRes.get());
         }
+        model.addAttribute("offers", offerRepository.findAll());
         return "offersList";
     }
 
