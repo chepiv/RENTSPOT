@@ -15,15 +15,15 @@ public abstract class User {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(nullable = false)
     private String name;
-    @Column
+    @Column(nullable = false)
     private String surname;
-    @Column
+    @Column(nullable = false)
     private String email;
     @Column
     private String phone;
-    @Column
+    @Column(nullable = false)
     private String password;
 
     public User(String name, String surname, String email, String phone, String password) {

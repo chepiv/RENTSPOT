@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -20,9 +21,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class OfferControllerTest {
+public class ParameterControllerTest {
 
-    @Autowired OfferController offerController;
+    @Autowired
+    ParameterController parameterController;
 
     @Autowired
     private MockMvc mockMvc;
@@ -30,17 +32,17 @@ public class OfferControllerTest {
 
 
     @Test
-    public void httpGetOnDefault_shoulReturnOkAndOfferListHtml() throws Exception {
-        this.mockMvc.perform(get("/"))
+    public void httpGetOnAddParam_shoulReturnOkAndAddParamHtml() throws Exception {
+        this.mockMvc.perform(get("/addParam"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("offersList"));
+                .andExpect(view().name("addParam"));
     }
 
     @Test
-    public void httpGetOnAddOffer_shouldReturnOkAndAddOfferHtml() throws Exception{
-        this.mockMvc.perform(get("/addOffer"))
+    public void httpGetOnParamList_shouldReturnOkAndParamListHtml() throws Exception{
+        this.mockMvc.perform(get("/paramList"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("addOffer"));
+                .andExpect(view().name("paramList"));
     }
 
 }

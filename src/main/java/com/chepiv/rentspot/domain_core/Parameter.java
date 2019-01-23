@@ -15,7 +15,7 @@ public class Parameter {
     @Id
     @Column(name = "ID")
     private Long id;
-    @Column(name = "Name")
+    @Column(name = "Name",nullable = false)
     private String name;
     @Column(name = "Value")
     private String value;

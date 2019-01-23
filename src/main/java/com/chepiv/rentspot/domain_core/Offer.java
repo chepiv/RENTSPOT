@@ -24,9 +24,9 @@ public class Offer {
     private Date date;
     @Column(name = "photo")
     private BlobType photo;
-    @Column(name = "header")
+    @Column(name = "header",nullable = false)
     private String header;
-    @Column(name = "description")
+    @Column(name = "description",nullable = false)
     private String description;
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
