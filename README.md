@@ -15,7 +15,7 @@ The main idea is that you can add an offer with infinite number of parameters.
 - Hibernate
 - JUnit
 
-This app was made in hurry due to the coming deadline. :laughting:
+This app was made in hurry due to the coming deadline. :smile:
 
 For example the whole @Service layer was ommited in order to make this app works.
 
